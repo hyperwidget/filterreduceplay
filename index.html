@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Playing with filter and reduce</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        
+        .chartColumns {
+            width: 20%;
+            float: left;
+        }
+        
+        #semi-charts {
+            height: 400px;
+            width: 100%;
+            border: solid 1px black;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="createObjects()">
+        Create Objects!
+    </button>
+
+    <div id="status"></div>
+
+    <div id="actions" class="hidden">
+        <button onclick="filterObjects()">
+        Perform Filter
+    </button>
+        <button onclick="reduceObjects()">
+        Perform Reduce
+    </button>
+        <button onclick="filterReduceObjects()">
+        Perform Filter & Reduce
+    </button>
+        <button onclick="reduceFilterObjects()">
+        Perform Reduce Filter
+        </button>
+        <button onclick="forEachObjects()">
+        Perform forEach Filter
+        </button>
+        <button onclick="forObjects()">
+        Perform for Filter
+        </button>
+    </div>
+
+    <div id="actionStatus" class="hidden"></div>
+
+    <div id="bothCheck" class="hidden">
+        <button onclick="compareAll()">
+            Compare all methods!
+        </button>
+
+        <div id="allStatus" class="hidden"></div>
+
+        <div id="semi-charts">
+            <div id="chart1" class="chartColumns">
+            </div>
+            <div id="chart2" class="chartColumns">
+            </div>
+            <div id="chart3" class="chartColumns">
+            </div>
+            <div id="chart4" class="chartColumns">
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./filterreduceplay.js"></script>
+</body>
+
+</html>
