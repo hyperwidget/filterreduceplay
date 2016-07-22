@@ -1,6 +1,6 @@
 const TEMPLATEOBJECT = { id: 0, contents: [1, 2, 3, 4], included: false };
-const OBJECTAMOUNT = 10000;
-const TESTAMOUNT = 10000;
+const OBJECTAMOUNT = 100;
+const TESTAMOUNT = 20;
 
 let filterResults = [];
 let reduceResults = [];
@@ -294,17 +294,14 @@ function compareAll() {
 
                         let avgs = [filterAvg, reduceAvg, forEachAvg, forAvg].sort(sortAvgs);
 
-                        avgs.forEach(function (avg) {
-                            console.log(avg.name + ' ' + avg.val + ', ');
-                        });
-
                         document.getElementById('allStatus').innerHTML += 'That makes ' + avgs[0].name + ' the fastest!<br/>' +
                             'by a whopping %' + (avgs[avgs.length - 1].val / avgs[0].val * 100) + ' over ' + avgs[avgs.length - 1].name;
                         document.getElementById('allStatus').className = 'show';
 
-
-                        // document.getElementById('chart1').style('height', '%' + (avgs[avgs.length - 1] % avgs[avgs.length - 1]));
-
+                        for (var index = 0; index < avgs.length; index++) {
+                            document.getElementById('chart' + (index + 1)).style.height = 400 / (avgs[avgs.length - 1].val / avgs[avgs.length - (index + 1)].val) + 'px';
+                            document.getElementById('chart' + (index + 1)).getElementsByTagName('p')[0].innerText = avgs[avgs.length - (index + 1)].name + ' ' + avgs[avgs.length - (index + 1)].val;
+                        }
                         document.getElementById('semi-charts').className = 'show';
                     } else {
                         console.error(filterResults[0][5]);
